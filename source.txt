@@ -1,0 +1,9 @@
+URL;Scrapetyp;Proxytyp;
+https://openproxy.space/list/http
+https://openproxy.space/list/socks4
+https://openproxy.space/list/socks5
+https://free-proxy-list.net
+
+https://free-proxy-list.com/?page=[page]&port=&up_time=0;1;0
+https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=[page];2;0
+https://hidemy.name/en/proxy-list/?start=[page];2;0
