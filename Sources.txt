@@ -1,28 +1,35 @@
-
 CRAWL:
-https://www.freeproxy.world/
-https://free-proxy-list.net/
-https://www.freeproxylists.net/
-https://advanced.name/freeproxy
-https://free-proxy-list.com/
-https://hidemy.name/en/proxy-list/%23list
-https://www.proxynova.com/proxy-server-list/
-https://premproxy.com/list/
-http://www.cybersyndrome.net/plz6.html
-
 https://openproxy.space/list/http
 https://openproxy.space/list/socks4
 https://openproxy.space/list/socks5
-
-https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all
-https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks4&timeout=10000&country=all
-https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all
-
+https://free-proxy-list.net
+https://vpnoverview.com/privacy/anonymous-browsing/free-proxy-servers/
+http://proxydb.net/?protocol=http
+http://proxydb.net/?protocol=https
+http://proxydb.net/?protocol=socks4
+http://proxydb.net/?protocol=socks5
+https://www.us-proxy.org/
+https://premiumproxy.net/
+https://www.netzwelt.de/proxy/index.html
+https://openproxy.space/list/http
+https://openproxy.space/list/socks4
+https://openproxy.space/list/socks5
+https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all
+https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=10000&country=all
+https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks5&timeout=10000&country=all
 https://www.proxy-list.download/HTTP
 https://www.proxy-list.download/HTTPS
 https://www.proxy-list.download/SOCKS4
 https://www.proxy-list.download/SOCKS5
+https://www.freeproxy.world/
+https://free-proxy-list.net/
 
+
+DIFFERENT PAGES:
+free-proxy-list.com/?page=[page]&port=&up_time=0
+https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=[page]
+https://hidemy.name/en/proxy-list/?start=[page]
+https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-[page]
 
 HTTP RAW:
 https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt
@@ -39,6 +46,7 @@ https://raw.githubusercontent.com/mertguvencli/http-proxy-list/main/proxy-list/d
 https://raw.githubusercontent.com/hendrikbgr/Free-Proxy-Repo/master/proxy_list.txt
 https://raw.githubusercontent.com/almroot/proxylist/master/list.txt
 https://www.proxy-list.download/api/v1/get?type=http
+https://www.proxyscan.io/download?type=http
 
 HTTPS RAW:
 https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt
@@ -46,6 +54,7 @@ https://raw.githubusercontent.com/RX4096/proxy-list/main/online/https.txt
 https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-https.txt
 https://raw.githubusercontent.com/mmpx12/proxy-list/master/https.txt
 https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_RAW.txt
+https://www.proxyscan.io/download?type=https
 
 SOCKS4 RAW:
 https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks4.txt
@@ -56,6 +65,7 @@ https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/prox
 https://raw.githubusercontent.com/mmpx12/proxy-list/master/socks4.txt
 https://raw.githubusercontent.com/roosterkid/openproxylist/main/SOCKS4_RAW.txt
 https://www.proxy-list.download/api/v1/get?type=socks4
+https://www.proxyscan.io/download?type=socks4
 
 SOCKS5 RAW:
 https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks5.txt
@@ -69,52 +79,21 @@ https://raw.githubusercontent.com/roosterkid/openproxylist/main/SOCKS5_RAW.txt
 https://raw.githubusercontent.com/manuGMG/proxy-365/main/SOCKS5.txt
 https://raw.githubusercontent.com/ryanhaticus/superiorproxy.com/main/proxies.txt
 https://www.proxy-list.download/api/v1/get?type=socks5
+https://www.proxyscan.io/download?type=socks5
 
-
-
-
-
-http://globalproxies.blogspot.com/
-http://www.samair.ru/proxy/ip-address-15.htm
-http://www.cybersyndrome.net/plz.html
-http://aliveproxies.com/
-http://www.cybersyndrome.net/plr5.html
-http://biskutliat.blogspot.com/
+Archiv:
 http://freeproxylist-daily.blogspot.com/2013/05/usa-proxy-list-2013-05-15-0111-am-gmt8.html
-http://proxylists.net/http_highanon.txt
+http://biskutliat.blogspot.com/
+http://www.proxylists.net/http_highanon.txt
 http://freeproxylist-daily.blogspot.com/2013/05/usa-proxy-list-2013-05-13-812-gmt7.html
-http://www.cybersyndrome.net/pla5.html
 http://vipprox.blogspot.com/2013_06_01_archive.html
-http://vipprox.blogspot.com/2013/05/us-proxy-servers-74_24.html
-http://vipprox.blogspot.com/p/blog-page_7.html
-http://vipprox.blogspot.com/2013/05/us-proxy-servers-199_20.html
-http://freeforall.ucoz.com/forum/16-13723-1
-http://vipprox.blogspot.com/2013_02_01_archive.html
 http://alexa.lr2b.com/proxylist.txt
-http://7proxy.blogspot.com/
-http://vipprox.blogspot.com/2013_03_01_archive.html
-http://browse.feedreader.com/c/Proxy_Server_List-1/449196260
-http://www.samair.ru/proxy/ip-address-09.htm
-http://browse.feedreader.com/c/Proxy_Server_List-1/449196258
 http://sock5us.blogspot.com/2013/06/01-07-13-free-proxy-server-list.html#comment-form
-http://www.samair.ru/proxy/proxy-13.htm
-http://www.proxyfire.net/forum/forumdisplay.php?s=07a031a5ab87d88a9e048f534a0498a8&f=17
-http://browse.feedreader.com/c/Proxy_Server_List-1/449196251
 http://free-ssh.blogspot.com/feeds/posts/default
-http://www.samair.ru/proxy/proxy-18.htm
-http://www.samair.ru/proxy/proxy-15.htm
-http://browse.feedreader.com/c/Proxy_Server_List-1/449196259
-http://www.sockfree.net/2013/04/142013-sock-free-update-1128.html
-http://www.samair.ru/proxy/proxy-20.htm
-http://www.sockfree.net/2013/04/142013-sock-free-update-1139.html
-http://sockproxy.blogspot.com/
-http://free-ssh.blogspot.com/
-http://sock5us.blogspot.com/
-http://www.samair.ru/proxy/proxy-12.htm
 http://sockproxy.blogspot.com/2013/04/11-04-13-socks-45.html
-http://www.samair.ru/proxy/time-09.htm
 http://proxyfirenet.blogspot.com/
-
+http://1000freeanonymousproxy.blogspot.com/2011/08/12-august-2011-fast-anonymous-proxy.html
+https://multiproxy.org/all_proxy.htm
 
 
 

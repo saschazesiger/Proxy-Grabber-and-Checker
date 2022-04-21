@@ -1,9 +1,18 @@
-URL;Scrapetyp;Proxytyp;
 https://openproxy.space/list/http
 https://openproxy.space/list/socks4
 https://openproxy.space/list/socks5
 https://free-proxy-list.net
+https://vpnoverview.com/privacy/anonymous-browsing/free-proxy-servers/
+http://proxydb.net/?protocol=http
+http://proxydb.net/?protocol=https
+http://proxydb.net/?protocol=socks4
+http://proxydb.net/?protocol=socks5
+https://www.us-proxy.org/
+https://premiumproxy.net/
+https://www.netzwelt.de/proxy/index.html
 
-https://free-proxy-list.com/?page=[page]&port=&up_time=0;1;0
-https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=[page];2;0
-https://hidemy.name/en/proxy-list/?start=[page];2;0
+https://free-proxy-list.com/?page=[page]&port=&up_time=0
+https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=[page]
+https://hidemy.name/en/proxy-list/?start=[page]
+https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-[page]
+https://proxyservers.pro/proxy/list/order/updated/order_dir/desc/page/[page]
