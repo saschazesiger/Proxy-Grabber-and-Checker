@@ -9,6 +9,7 @@ headers = {'User-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16N
 proxylist = []
 sourcefile = open("C:/Proxy-List/Sources.txt", "r")
 sourcelist = sourcefile.readlines()
+sourcefile.close()
 
 
 
@@ -56,11 +57,26 @@ def extract(soup):
     
     return proxies
 
+def sort(proxylist):
+    print("Sort Proxies...")
+    secondproxy = ""
+    proxylistnew = []
+    proxylist = proxylist.sort()
+    for proxy in proxylist:
+        if proxy != secondproxy:
+            proxylistnew = proxylistnew + proxy
+        secondproxy = proxy
+    return proxylistnew
 
-
+def writetxt(proxylist):
+    print("Writing to TXT...")
+    proxytxt = '\n'.join([str(elem) for elem in proxylist])
+    txt = open("./proxy.txt", "w")
+    txt.write(proxytxt)
+    txt.close()
 
 #TEST
-#for source in sourcelist:
+for source in sourcelist:
     rawurl = source.replace("\n", "")
     if "://" in rawurl:
         proxies = gethtml(rawurl, headers) 
@@ -69,5 +85,12 @@ def extract(soup):
     else:
         print(source)
 
-proxies = gethtml("https://proxyservers.pro/proxy/list/order/updated/order_dir/desc/page/1", headers)
-print(proxies)
+proxylist = sort(proxylist)
+
+writetxt(proxylist)
+
+
+
+
+#proxies = gethtml("https://proxyservers.pro/proxy/list/order/updated/order_dir/desc/page/1", headers)
+#print(proxies)
