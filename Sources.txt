@@ -23,10 +23,10 @@ https://www.proxy-list.download/SOCKS4
 https://www.proxy-list.download/SOCKS5
 https://www.freeproxy.world/
 https://free-proxy-list.net/
+https://free-proxy-list.com/?page=1&port=&up_time=0
 
 
-DIFFERENT PAGES:
-free-proxy-list.com/?page=[page]&port=&up_time=0
+MULTIPLE PAGES:
 https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=[page]
 https://hidemy.name/en/proxy-list/?start=[page]
 https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-[page]
@@ -81,7 +81,7 @@ https://raw.githubusercontent.com/ryanhaticus/superiorproxy.com/main/proxies.txt
 https://www.proxy-list.download/api/v1/get?type=socks5
 https://www.proxyscan.io/download?type=socks5
 
-Archiv:
+ARCHIV:
 http://freeproxylist-daily.blogspot.com/2013/05/usa-proxy-list-2013-05-15-0111-am-gmt8.html
 http://biskutliat.blogspot.com/
 http://www.proxylists.net/http_highanon.txt

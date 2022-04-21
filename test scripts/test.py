@@ -2,21 +2,14 @@ from dataclasses import replace
 from itertools import count
 from operator import contains
 import requests
+import threading
 from bs4 import BeautifulSoup
 import re
-
-headers = {'User-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36'}
-proxylist = []
-sourcefile = open("C:/Proxy-List/Sources.txt", "r")
-sourcelist = sourcefile.readlines()
-sourcefile.close()
-
-
-
-
+import os
+import shutil
 
 #Gets HTML from specific URL
-def gethtml(rawurl, headers):
+def gethtml(rawurl, log):
     proxies = ["leer"]
     proxylist = []
     page = 0
@@ -28,18 +21,20 @@ def gethtml(rawurl, headers):
             else:
                 page = page + 1
             url = rawurl.replace("[page]",f"{page}")
-            response = requests.get(url, headers=headers, timeout=10)
+            headers = {'User-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36'}
+            response = requests.get(url, headers=headers, timeout=15)
             soup = BeautifulSoup(response.content, 'html.parser')
             proxies =  extract(soup)
             proxylist = proxylist + proxies
-            print(len(proxies), len(proxylist), url)
-            
     else:
-        response = requests.get(rawurl, headers=headers, timeout=10)
+        headers = {'User-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36'}
+        url = rawurl
+        response = requests.get(url, headers=headers, timeout=15)
         soup = BeautifulSoup(response.content, 'html.parser')
         proxylist = extract(soup)
+    safeurl(proxylist, url)
+    
     return(proxylist)
-
 
 #Extracts IP:PORT from HTML but they don't need to be in the same tag
 def extract(soup):
@@ -47,50 +42,63 @@ def extract(soup):
     text = text.replace("\n",":").replace(" ", "")
     while "::" in text:
         text = text.replace("::", ":")
-    #print(text)
     proxies = re.findall(r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\:\d{1,5}\b", text)
     if len(proxies) < 1:
         text = f"{soup.body}"
         proxies = re.findall(r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\:\d{1,5}\b", text)
-    #for proxy in proxies:
-        #print(proxy)
-    
     return proxies
 
-def sort(proxylist):
-    print("Sort Proxies...")
-    secondproxy = ""
-    proxylistnew = []
-    proxylist = proxylist.sort()
-    for proxy in proxylist:
-        if proxy != secondproxy:
-            proxylistnew = proxylistnew + proxy
-        secondproxy = proxy
-    return proxylistnew
-
-def writetxt(proxylist):
-    print("Writing to TXT...")
-    proxytxt = '\n'.join([str(elem) for elem in proxylist])
-    txt = open("./proxy.txt", "w")
-    txt.write(proxytxt)
-    txt.close()
-
-#TEST
-for source in sourcelist:
-    rawurl = source.replace("\n", "")
-    if "://" in rawurl:
-        proxies = gethtml(rawurl, headers) 
-        proxylist = proxylist + proxies
-        print(len(proxies),len(proxylist), rawurl)
+#Saves Proxies to Files named after the Site the Proxy was found on
+def safeurl(proxylist, url):
+    proxies = '\n'.join([str(elem) for elem in proxylist])
+    filename = url.split("/")
+    filenameurl = filename[2]
+    if filenameurl == "raw.githubusercontent.com":
+        filenameurl = f"github-{filename[3]}"
+    if os.path.exists(f"./raw-proxy-list/{filenameurl}.txt"):
+        file = open(f"./raw-proxy-list/{filenameurl}.txt", "r")
+        fileold = file.read()
+        fileold = fileold.split("-----------------------------------")
+        file.close()
+        try:
+            file = open(f"./raw-proxy-list/{filenameurl}.txt", "w")
+            file.write(f"{fileold[0]}\nURL to Source: {url}\nFound Proxies: {len(proxylist)}\n-----------------------------------\n{fileold[1]}\n{proxies}")
+            file.close()
+        except:
+            pass
     else:
-        print(source)
-
-proxylist = sort(proxylist)
-
-writetxt(proxylist)
-
+        file = open(f"./raw-proxy-list/{filenameurl}.txt", "w")
+        file.write(f"URL to Source: {url}\nFound Proxies: {len(proxylist)}\n-----------------------------------\n{proxies}")
+        file.close()
+    print(len(proxylist), filenameurl)
 
 
+#RUN
+def main():
+    try:
+        shutil.rmtree("./raw-proxy-list/")
+    except Exception as e:
+        print(e)
+    os.mkdir("./raw-proxy-list")
+    sourcefile = open("C:/Proxy-List/Sources.txt", "r")
+    sourcelist = sourcefile.readlines()
+    sourcefile.close()
 
-#proxies = gethtml("https://proxyservers.pro/proxy/list/order/updated/order_dir/desc/page/1", headers)
-#print(proxies)
+    thread = []
+    log = ""
+    for source in sourcelist:
+        rawurl = source.replace("\n", "")
+        if "://" in rawurl:
+            try:
+                t = threading.Thread(target=gethtml, args=(rawurl, log))
+                t.start()
+                thread.append(t)
+            except:
+                pass
+
+    for j in thread:
+        j.join()
+
+
+#RUN PROGRAMM
+main()
