@@ -91,6 +91,7 @@ def safeurl(proxylist, url):
 
 #Lists every Source in a CSV File
 def listall():
+    allproxies = ""
     allfiles = []
     list = ""
     for (dirpath, dirnames, filenames) in os.walk("./raw-proxy-list/"):
@@ -108,6 +109,10 @@ def listall():
         else:
             name = filename.replace(".txt", "").replace("www.", "")
         filecontent = file.readlines()
+        content = file.read()
+        proxieslist = re.findall(r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\:\d{1,5}\b", content)
+        for proxies in proxieslist:
+            allproxies = allproxies + "\n" + proxies
         file.close()
         for line in filecontent:
             if "URL to Source: " in line:
@@ -115,10 +120,13 @@ def listall():
             elif "Found Proxies: " in line:
                 number = line.replace("Found Proxies: ", "").replace("\n", "")
         
-        list = list + f"{name};{source};{number}\n"
-        file = open("./raw-proxy-list/all.csv", "w")
-        file.write(list)
-        file.close()
+    list = list + f"{name};{source};{number}\n"
+    file = open("./raw-proxy-list/all.csv", "w")
+    file.write(list)
+    file.close()
+    file = open("./raw-proxy-list/all-proxies.txt", "w")
+    file.write(allproxies)
+    file.close()
 
 
 #RUN
