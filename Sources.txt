@@ -23,13 +23,12 @@ https://www.proxy-list.download/SOCKS4
 https://www.proxy-list.download/SOCKS5
 https://www.freeproxy.world/
 https://free-proxy-list.net/
-https://free-proxy-list.com/?page=1&port=&up_time=0
 
-
-MULTIPLE PAGES:
-https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=[page]
-https://hidemy.name/en/proxy-list/?start=[page]
-https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-[page]
+MULTIPLE PAGES: ([page] for automatic Sitenumber, [0-999] for max crawled pages)
+[20]https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=[page]
+[20]https://hidemy.name/en/proxy-list/?start=[page]
+[20]https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-[page]
+[20]https://free-proxy-list.com/?page=[page]&port=&up_time=0
 
 HTTP RAW:
 https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt
@@ -81,20 +80,5 @@ https://raw.githubusercontent.com/ryanhaticus/superiorproxy.com/main/proxies.txt
 https://www.proxy-list.download/api/v1/get?type=socks5
 https://www.proxyscan.io/download?type=socks5
 
-ARCHIV:
-http://freeproxylist-daily.blogspot.com/2013/05/usa-proxy-list-2013-05-15-0111-am-gmt8.html
-http://biskutliat.blogspot.com/
-http://www.proxylists.net/http_highanon.txt
-http://freeproxylist-daily.blogspot.com/2013/05/usa-proxy-list-2013-05-13-812-gmt7.html
-http://vipprox.blogspot.com/2013_06_01_archive.html
-http://alexa.lr2b.com/proxylist.txt
-http://sock5us.blogspot.com/2013/06/01-07-13-free-proxy-server-list.html#comment-form
-http://free-ssh.blogspot.com/feeds/posts/default
-http://sockproxy.blogspot.com/2013/04/11-04-13-socks-45.html
-http://proxyfirenet.blogspot.com/
-http://1000freeanonymousproxy.blogspot.com/2011/08/12-august-2011-fast-anonymous-proxy.html
-https://multiproxy.org/all_proxy.htm
 
-
-
-http://httpbin.org/ip
+httpbin.org/ip
