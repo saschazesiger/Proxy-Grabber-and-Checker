@@ -1,5 +1,6 @@
 from dataclasses import replace
 from itertools import count
+from socket import timeout
 import requests
 import threading
 from bs4 import BeautifulSoup
@@ -143,21 +144,21 @@ def duplicatefinder():
 
 def checkproxy(proxy, log):
     try:
-        response = requests.get('http://test.js0.ch', proxies=dict(http=f'http://{proxy}'))
+        response = requests.get('http://test.js0.ch', proxies=dict(http=f'http://{proxy}', timeout=10))
         if response.status_code == 200:
             file = open("./proxy-list/working.txt", "a")
             file.write(f"http://{proxy}")
             file.close()
     except:
         try:
-            response = requests.get('http://test.js0.ch', proxies=dict(http=f'socks4://{proxy}'))
+            response = requests.get('http://test.js0.ch', proxies=dict(http=f'socks4://{proxy}', timeout=10))
             if response.status_code == 200:
                 file = open("./proxy-list/working.txt", "a")
                 file.write(f"socks4://{proxy}")
                 file.close()
         except:
             try:
-                response = requests.get('http://test.js0.ch', proxies=dict(http=f'socks5://{proxy}'))
+                response = requests.get('http://test.js0.ch', proxies=dict(http=f'socks5://{proxy}', timeout=10))
                 if response.status_code == 200:
                     file = open("./proxy-list/working.txt", "a")
                     file.write(f"socks5://{proxy}")
@@ -213,10 +214,10 @@ def main():
             thread.append(t)
         except:
             pass
-    #for j in thread:
-    #    j.join()
     print("Wartet auf restliche Prozesse...")
-    time.sleep(60)
+    time.sleep(30)
+    for j in thread:
+        j.join()
     file = open("./proxy-list/working.txt", "r")
     workingproxies = file.readlines()
     file.close()
@@ -235,4 +236,4 @@ def main():
 
 #RUN PROGRAMM
 main()
-
+exit(1)
