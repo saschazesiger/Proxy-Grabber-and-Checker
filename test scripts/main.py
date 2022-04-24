@@ -1,6 +1,5 @@
 from dataclasses import replace
 from itertools import count
-#from operator import contains
 import requests
 import threading
 from bs4 import BeautifulSoup
@@ -51,7 +50,11 @@ def gethtml(rawurl, log):
             print("No Proxies found with url", url)
     safeurl(proxylist, url)
     
-    return(proxylist)
+    #Writes all Proxies to one file
+    file = open("./proxy-list/raw.txt", "a")
+    proxies = '\n'.join([str(elem) for elem in proxylist])
+    file.write(proxies + "\n")
+    file.close()
 
 #Extracts IP:PORT from HTML but they don't need to be in the same tag
 def extract(soup):
@@ -119,6 +122,23 @@ def listall():
     file.write(list)
     file.close()
 
+#Finds duplicates in raw.txt list and writes to all.txt
+def duplicatefinder():
+    file = open("./proxy-list/raw.txt", "r")
+    proxylist = file.readlines()
+    file.close()
+    proxylist.sort()
+    firstproxy = ""
+    dupproxy = []
+    for proxy in proxylist:
+        if proxy != firstproxy:
+            dupproxy.append(proxy)
+        firstproxy = proxy
+    file = open("./proxy-list/all.txt", "w")
+    proxies = ''.join([str(elem) for elem in dupproxy])
+    file.write(proxies)
+    file.close()
+    print(f"All: {len(proxylist)} without duplicates: {len(dupproxy)}")
 
 #RUN
 def main():
@@ -130,7 +150,9 @@ def main():
     sourcefile = open("../Sources.txt", "r")
     sourcelist = sourcefile.readlines()
     sourcefile.close()
-
+    file = open("./proxy-list/raw.txt", "w")
+    file.write("")
+    file.close()
     thread = []
     log = ""
     for source in sourcelist:
@@ -147,7 +169,8 @@ def main():
         j.join()
 
     listall()
-
+    duplicatefinder()
 
 #RUN PROGRAMM
 main()
+
