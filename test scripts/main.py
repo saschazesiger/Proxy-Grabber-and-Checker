@@ -140,6 +140,36 @@ def duplicatefinder():
     file.close()
     print(f"All: {len(proxylist)} without duplicates: {len(dupproxy)}")
 
+def checkproxy(proxy, log):
+    try:
+        response = requests.get('http://check-host.net/ip', proxies=dict(http=f'http://{proxy}'))
+        if response.status_code == 200:
+            file = open("./proxy-list/working.txt", "a")
+            file.write(f"http://{proxy}")
+            file.close()
+    except:
+        try:
+            response = requests.get('http://check-host.net/ip', proxies=dict(http=f'socks4://{proxy}'))
+            if response.status_code == 200:
+                file = open("./proxy-list/working.txt", "a")
+                file.write(f"socks4://{proxy}")
+                file.close()
+        except:
+            try:
+                response = requests.get('http://check-host.net/ip', proxies=dict(http=f'socks5://{proxy}'))
+                if response.status_code == 200:
+                    file = open("./proxy-list/working.txt", "a")
+                    file.write(f"socks5://{proxy}")
+                    file.close()
+            except:
+                try:
+                    response = requests.get('http://check-host.net/ip', proxies=dict(http=f'https://{proxy}'))
+                    if response.status_code == 200:
+                        file = open("./proxy-list/working.txt", "a")
+                        file.write(f"https://{proxy}")
+                        file.close()
+                except:
+                    pass
 #RUN
 def main():
     try:
@@ -153,8 +183,10 @@ def main():
     file = open("./proxy-list/raw.txt", "w")
     file.write("")
     file.close()
+    
     thread = []
     log = ""
+    #Get proxies from Websites in multiple threads
     for source in sourcelist:
         rawurl = source.replace("\n", "")
         if "://" in rawurl:
@@ -164,13 +196,44 @@ def main():
                 thread.append(t)
             except:
                 pass
-
     for j in thread:
-        j.join()
+        j.join()    
 
     listall()
     duplicatefinder()
 
+    #Checks proxies
+    file = open("./proxy-list/working.txt", "w")
+    file.write("")
+    file.close()
+    file = open("./proxy-list/all.txt", "r")
+    uniqueproxies = file.readlines()
+    file.close()
+    thread = []
+    log = ""
+    for proxy in uniqueproxies:
+        try:
+            t = threading.Thread(target=checkproxy, args=(proxy, log))
+            t.start()
+            thread.append(t)
+        except:
+            pass
+    for j in thread:
+        j.join()
+    file = open("./proxy-list/working.txt", "r")
+    workingproxies = file.readlines()
+    file.close()
+    workingproxiesnew = []
+    proxycount = 0
+    for proxy in workingproxies:
+        if len(proxy) < 2:
+            pass
+        else:
+            workingproxiesnew.append(proxy)
+            proxycount = proxycount + 1
+    print(proxycount, "Working proxies.")
+
+
 #RUN PROGRAMM
-main()
+#main()
 
