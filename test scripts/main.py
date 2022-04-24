@@ -7,6 +7,7 @@ import re
 import os
 import shutil
 import time
+import urllib.request, socket
 
 #Gets HTML from specific URL
 def gethtml(rawurl, log):
@@ -142,28 +143,20 @@ def duplicatefinder():
     print(f"All: {len(proxylist)} without duplicates: {len(dupproxy)}")
 
 def checkproxy(proxy, log):
-    try:
-        response = requests.get('http://test.js0.ch', proxies=dict(http=f'http://{proxy}'))
-        if response.status_code == 200:
-            file = open("./proxy-list/working.txt", "a")
-            file.write(f"http://{proxy}")
-            file.close()
+    socket.setdefaulttimeout(20)
+    try:        
+        proxy_handler = urllib.request.ProxyHandler({'http': proxy})        
+        opener = urllib.request.build_opener(proxy_handler)
+        opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+        urllib.request.install_opener(opener)        
+        sock=urllib.request.urlopen('http://test.js0.ch/')
+        file = open("./proxy-list/working.txt", "a")
+        file.write(f"{proxy}")
+        file.close()
     except:
-        try:
-            response = requests.get('http://test.js0.ch', proxies=dict(http=f'socks4://{proxy}'))
-            if response.status_code == 200:
-                file = open("./proxy-list/working.txt", "a")
-                file.write(f"socks4://{proxy}")
-                file.close()
-        except:
-            try:
-                response = requests.get('http://test.js0.ch', proxies=dict(http=f'socks5://{proxy}'))
-                if response.status_code == 200:
-                    file = open("./proxy-list/working.txt", "a")
-                    file.write(f"socks5://{proxy}")
-                    file.close()
-            except:
-                pass
+        pass
+
+
 #RUN
 def main():
     try:
@@ -196,8 +189,8 @@ def main():
     listall()
     duplicatefinder()
 
-    print("Checking proxies...")
     #Checks proxies
+    print("Checking proxies...")
     file = open("./proxy-list/working.txt", "w")
     file.write("")
     file.close()
