@@ -142,21 +142,21 @@ def duplicatefinder():
 
 def checkproxy(proxy, log):
     try:
-        response = requests.get('http://check-host.net/ip', proxies=dict(http=f'http://{proxy}'))
+        response = requests.get('http://test.js0.ch', proxies=dict(http=f'http://{proxy}'))
         if response.status_code == 200:
             file = open("./proxy-list/working.txt", "a")
             file.write(f"http://{proxy}")
             file.close()
     except:
         try:
-            response = requests.get('http://check-host.net/ip', proxies=dict(http=f'socks4://{proxy}'))
+            response = requests.get('http://test.js0.ch', proxies=dict(http=f'socks4://{proxy}'))
             if response.status_code == 200:
                 file = open("./proxy-list/working.txt", "a")
                 file.write(f"socks4://{proxy}")
                 file.close()
         except:
             try:
-                response = requests.get('http://check-host.net/ip', proxies=dict(http=f'socks5://{proxy}'))
+                response = requests.get('http://test.js0.ch', proxies=dict(http=f'socks5://{proxy}'))
                 if response.status_code == 200:
                     file = open("./proxy-list/working.txt", "a")
                     file.write(f"socks5://{proxy}")
