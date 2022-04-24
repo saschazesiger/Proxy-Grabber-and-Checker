@@ -1,5 +1,6 @@
 URL to Source: https://raw.githubusercontent.com/almroot/proxylist/master/list.txt
 <<<<<<< HEAD
+<<<<<<< HEAD
 Found Proxies: 4
 -----------------------------------
 122.155.165.191:3128
@@ -18,3 +19,12 @@ Found Proxies: 8
 75.119.130.35:3128
 85.234.38.247:3128
 >>>>>>> parent of c25b98e (Bugfixes)
+=======
+Found Proxies: 5
+-----------------------------------
+128.199.214.87:3128
+139.162.111.141:3128
+14.17.106.202:3128
+5.39.189.39:3128
+85.25.91.156:5566
+>>>>>>> parent of 0bacbea (General Update)

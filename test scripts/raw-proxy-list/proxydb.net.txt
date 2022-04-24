@@ -1,16 +1,12 @@
 URL to Source: http://proxydb.net/?protocol=socks5
 Found Proxies: 15
 
-URL to Source: http://proxydb.net/?protocol=https
-Found Proxies: 15
-
-URL to Source: http://proxydb.net/?protocol=socks4
+URL to Source: http://proxydb.net/?protocol=http
 Found Proxies: 15
 
 URL to Source: http://proxydb.net/?protocol=socks4
 Found Proxies: 15
 -----------------------------------
-
 
 98.162.25.23:4145
 184.178.172.14:4145
@@ -28,6 +24,7 @@ Found Proxies: 15
 72.195.114.169:4145
 24.249.199.4:4145
 <<<<<<< HEAD
+<<<<<<< HEAD
 159.255.188.134:41258
 220.179.118.244:8080
 185.128.104.157:8080
@@ -44,6 +41,8 @@ Found Proxies: 15
 54.39.102.233:3128
 36.95.84.151:41890
 =======
+=======
+>>>>>>> parent of 0bacbea (General Update)
 68.188.59.198:80
 85.26.146.169:80
 68.185.57.66:80
@@ -58,6 +57,7 @@ Found Proxies: 15
 128.199.202.122:3128
 51.91.157.66:80
 194.5.193.183:80
+<<<<<<< HEAD
 159.255.188.134:41258
 >>>>>>> parent of c25b98e (Bugfixes)
 184.178.172.14:4145
@@ -75,3 +75,6 @@ Found Proxies: 15
 174.64.199.82:4145
 98.162.96.41:4145
 72.195.34.41:4145
+=======
+159.255.188.134:41258
+>>>>>>> parent of 0bacbea (General Update)
