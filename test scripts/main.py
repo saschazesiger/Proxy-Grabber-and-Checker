@@ -162,14 +162,7 @@ def checkproxy(proxy, log):
                     file.write(f"socks5://{proxy}")
                     file.close()
             except:
-                try:
-                    response = requests.get('http://check-host.net/ip', proxies=dict(http=f'https://{proxy}'))
-                    if response.status_code == 200:
-                        file = open("./proxy-list/working.txt", "a")
-                        file.write(f"https://{proxy}")
-                        file.close()
-                except:
-                    pass
+                pass
 #RUN
 def main():
     try:
@@ -183,10 +176,10 @@ def main():
     file = open("./proxy-list/raw.txt", "w")
     file.write("")
     file.close()
-    
     thread = []
     log = ""
     #Get proxies from Websites in multiple threads
+    print("Getting proxies from websites...")
     for source in sourcelist:
         rawurl = source.replace("\n", "")
         if "://" in rawurl:
@@ -197,11 +190,12 @@ def main():
             except:
                 pass
     for j in thread:
-        j.join()    
+        j.join()   
 
     listall()
     duplicatefinder()
 
+    print("Checking proxies...")
     #Checks proxies
     file = open("./proxy-list/working.txt", "w")
     file.write("")
@@ -225,6 +219,8 @@ def main():
     file.close()
     workingproxiesnew = []
     proxycount = 0
+
+    print("Checking working proxies...")
     for proxy in workingproxies:
         if len(proxy) < 2:
             pass
@@ -235,5 +231,5 @@ def main():
 
 
 #RUN PROGRAMM
-#main()
+main()
 

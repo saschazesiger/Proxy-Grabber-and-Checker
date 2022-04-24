@@ -1,0 +1,13 @@
+URL to Source: https://www.proxyscan.io/download?type=socks5
+Found Proxies: 0
+
+URL to Source: https://www.proxyscan.io/download?type=https
+Found Proxies: 0
+
+URL to Source: https://www.proxyscan.io/download?type=socks4
+Found Proxies: 0
+-----------------------------------
+
+
+
+
