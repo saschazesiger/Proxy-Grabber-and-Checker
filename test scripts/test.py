@@ -25,30 +25,21 @@ def gethtml(rawurl, log):
             if urlnumber != 0:
                 urlnumber = urlnumber - 1
             else:
-                #print("Break due defined max number", url)
+                print("Wiederhohlungen abgeschlossen", url)
                 break
             url = rawurl.replace("[page]",f"{page}")
             url = re.sub(r"\[[0-9]+\]", "", url)
             headers = {'User-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36'}
-            try:
-                response = requests.get(url, headers=headers, timeout=15)
-                soup = BeautifulSoup(response.content, 'html.parser')
-                proxies =  extract(soup)
-            except Exception as e:
-                print("Error while connecting to", url, ";", e)
+            response = requests.get(url, headers=headers, timeout=15)
+            soup = BeautifulSoup(response.content, 'html.parser')
+            proxies =  extract(soup)
             proxylist = proxylist + proxies
-#If Site has only one Page
     else:
         headers = {'User-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36'}
         url = rawurl
-        try:
-            response = requests.get(url, headers=headers, timeout=20)
-            soup = BeautifulSoup(response.content, 'html.parser')
-            proxylist = extract(soup)
-        except Exception as e:
-            print("Error while connecting to", url, ";", e)
-        if len(proxylist) < 1:
-            print("No Proxies found with url", url)
+        response = requests.get(url, headers=headers, timeout=15)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        proxylist = extract(soup)
     safeurl(proxylist, url)
     
     return(proxylist)
@@ -87,6 +78,7 @@ def safeurl(proxylist, url):
         file = open(f"./raw-proxy-list/{filenameurl}.txt", "w")
         file.write(f"URL to Source: {url}\nFound Proxies: {len(proxylist)}\n-----------------------------------\n{proxies}")
         file.close()
+<<<<<<< HEAD
 
 
 #Lists every Source in a CSV File
@@ -127,6 +119,9 @@ def listall():
     file = open("./raw-proxy-list/all-proxies.txt", "w")
     file.write(allproxies)
     file.close()
+=======
+    #print(len(proxylist), filenameurl)
+>>>>>>> parent of c25b98e (Bugfixes)
 
 
 #RUN
@@ -158,4 +153,3 @@ def main():
 
 #RUN PROGRAMM
 main()
-listall()
