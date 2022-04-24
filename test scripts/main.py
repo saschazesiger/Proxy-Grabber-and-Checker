@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import re
 import os
 import shutil
+import time
 
 #Gets HTML from specific URL
 def gethtml(rawurl, log):
@@ -212,8 +213,10 @@ def main():
             thread.append(t)
         except:
             pass
-    for j in thread:
-        j.join()
+    #for j in thread:
+    #    j.join()
+    print("Wartet auf restliche Prozesse...")
+    time.sleep(60)
     file = open("./proxy-list/working.txt", "r")
     workingproxies = file.readlines()
     file.close()
