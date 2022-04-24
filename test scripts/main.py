@@ -146,7 +146,8 @@ def main():
     for j in thread:
         j.join()
 
+    listall()
+
 
 #RUN PROGRAMM
 main()
-listall()
