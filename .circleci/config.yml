@@ -12,6 +12,7 @@ jobs:
       - run:
           name: Run refresh
           command: |
+            chmod 755 chromedriver
             python refresh.py
 workflows:
   refresh: 
