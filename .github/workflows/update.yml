@@ -1,5 +1,9 @@
 name: Updater
 
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,9 +14,11 @@ jobs:
       with:
         python-version: 3.8
     - name: Install dependencies
-      run: python -m pip install --upgrade pip
-      run: pip install requests selenium bs4
-      run: curl -s -L https://raw.githubusercontent.com/saschazesiger/Proxy-List/main/refresh.py -o refresh.py
-      run: curl -s -L https://raw.githubusercontent.com/saschazesiger/Proxy-List/main/chromedriver.exe -o chromedriver.exe
+      run: | 
+        python -m pip install --upgrade pip
+        pip install requests selenium bs4
+        curl -s -L https://raw.githubusercontent.com/saschazesiger/Proxy-List/main/refresh.py -o refresh.py
+        curl -s -L https://raw.githubusercontent.com/saschazesiger/Proxy-List/main/chromedriver.exe -o chromedriver.exe
     - name: Run Update
     - run: python refresh.py
+
