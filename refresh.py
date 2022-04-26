@@ -174,3 +174,7 @@ def start():
     print("Finish")
 
 start()
+
+with open("./provider.csv", "r") as f:
+    providers = f.read()
+print(providers)
