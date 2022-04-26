@@ -13,6 +13,7 @@ jobs:
           name: Run refresh
           command: |
             cd /home/circleci/project/
+            ls
             python refresh.py
 workflows:
   refresh: 
