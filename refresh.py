@@ -148,7 +148,7 @@ def normalizer():
 
 
 def start():
-    with open("./sources.txt", "r") as f:
+    with open("sources.txt", "r") as f:
         sources = f.readlines()
     with open("./raw.txt", "w") as f:
         f.write("")
