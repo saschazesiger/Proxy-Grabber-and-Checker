@@ -1,4 +1,5 @@
 from email import charset
+from ftplib import parse150
 from selenium import webdriver #pip install selenium
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
@@ -104,6 +105,29 @@ def extract(html):
     return proxies
 
 def normalizer():
+    with open("./provider.csv", "r") as f:
+        providers = f.readlines()
+    providers.sort()
+    p0 = ""
+    p1 = ""
+    pall = ""
+    for provider in providers:
+        p = provider.split(";")
+        if p[0] == p0:
+            p1 = int(p1.replace("\n", "")) + int(p[1].replace("\n", ""))
+            p1 = f"{p1}\n"
+        else:
+            pall = pall + f"{p0};{p1}"
+            try:
+                p1 = p[1]
+            except:
+                pass
+        p0 = p[0]
+    with open("./provider.csv", "w") as f:
+        f.write(pall)
+        
+
+
     with open("./raw.txt", "r") as f:
         proxies = f.readlines()
     proxies.sort()
@@ -117,7 +141,6 @@ def normalizer():
             proxiesdup = proxiesdup + proxy
             nodups = nodups + 1
         before = proxy
-
     with open("./provider.csv", "a") as f:
         f.write(f"All: {all}, Without Duplicates: {nodups}")
     with open("./all.txt", "w") as f:
