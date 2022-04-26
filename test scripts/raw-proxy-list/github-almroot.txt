@@ -1,8 +1,0 @@
-URL to Source: https://raw.githubusercontent.com/almroot/proxylist/master/list.txt
-Found Proxies: 5
------------------------------------
-149.154.157.17:5678
-210.6.102.94:8080
-52.90.182.59:16133
-63.161.104.189:3128
-77.238.129.14:55443
