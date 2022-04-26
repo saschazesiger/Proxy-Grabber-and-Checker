@@ -11,7 +11,9 @@ jobs:
           pkg-manager: pip
       - run:
           name: Run refresh
-          command: python refresh.py
+          command: |
+            cd /home/circleci/project/
+            python refresh.py
 workflows:
   refresh: 
     jobs:
