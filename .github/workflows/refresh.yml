@@ -29,13 +29,13 @@ jobs:
         python refresh.py
     - name: Pushes to Free-Proxies
       id: push_directory
-      uses: cpina/github-action-push-to-another-repository@devel
+      uses: saschazesiger/Proxy-Grabber-and-Checker@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source-directory: output/
-        destination-github-username: 'saschazesiger'
-        destination-repository-name: 'Free-Proxies'
-        user-email: janis.zesiger@gmail.com
-        commit-message: Refresh
-        target-branch: main
+        source-directory: 'output/'
+        user_name: 'saschazesiger'
+        destination_repo: 'saschazesiger/Free-Proxies'
+        user-email: 'janis.zesiger@gmail.com'
+        commit-message: 'Refresh'
+        target-branch: 'main'
