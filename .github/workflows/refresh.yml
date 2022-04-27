@@ -32,6 +32,6 @@ jobs:
         git config --local user.email "janis.zesiger@gmail.com"
         git config --local user.name "saschazesiger"
         git commit -am "Updated Proxies"
-        git push https://${{secrets.API_TOKEN_GITHUB}}@github.com/saschazesiger/Free-Proxies.git
+        git push https://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@github.com/saschazesiger/Free-Proxies.git
 
 
