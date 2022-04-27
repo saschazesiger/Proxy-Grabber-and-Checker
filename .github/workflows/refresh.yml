@@ -27,4 +27,5 @@ jobs:
         pip install -r requirements.txt
     - name: Run
       run: |
+        chmod 777 chromedriver
         python refresh.py
