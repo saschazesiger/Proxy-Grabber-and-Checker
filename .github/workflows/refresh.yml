@@ -29,12 +29,8 @@ jobs:
         python refresh.py
     - name: Commit
       run: |
-        git config --local user.email janis.zesiger@gmail.com
-        git config --local user.name saschazesiger
+        git config --local user.email 'saschazesiger@users.noreply.github.com'
+        git config --local user.name 'saschazesiger'
+        git remote set-url origin https://x-access-token:${{ secrets.API_TOKEN_GITHUB }}@github.com/saschazesiger/Free-Proxies
         git commit -am "Refreshed List"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.API_TOKEN_GITHUB }}
-      env:
-        CI: true
+
