@@ -1,0 +1,42 @@
+name: Refresh
+
+on:
+  workflow_dispatch:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        wget 'https://raw.githubusercontent.com/saschazesiger/Proxy-Grabber-and-Checker/main/Sources.txt'
+        wget 'https://raw.githubusercontent.com/saschazesiger/Proxy-Grabber-and-Checker/main/chromedriver'
+        wget 'https://raw.githubusercontent.com/saschazesiger/Proxy-Grabber-and-Checker/main/refresh.py'
+        pip install requests beautifulsoup4 selenium
+    - name: Run
+      run: |
+        mkdir output/
+        chmod 777 chromedriver
+        python refresh.py
+    - name: Commit
+      run: |
+        mv .git ./output/.git
+        cd ./output
+        git config --local user.email 'saschazesiger@users.noreply.github.com'
+        git config --local user.name 'saschazesiger'
+        git remote set-url origin 'https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/saschazesiger/Free-Proxies.git'
+        git add .
+        git commit -am "Refreshed List"
+        git push
