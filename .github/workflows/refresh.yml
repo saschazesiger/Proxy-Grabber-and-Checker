@@ -31,6 +31,6 @@ jobs:
       run: |
         git config --local user.email 'saschazesiger@users.noreply.github.com'
         git config --local user.name 'saschazesiger'
-        git remote set-url origin https://x-access-token:${{ secrets.API_TOKEN_GITHUB }}@github.com/saschazesiger/Free-Proxies
+        git remote set-url origin https://x-access-token:${{ secrets.API_TOKEN_GITHUB }}@github.com/saschazesiger/Free-Proxies.git
         git commit -am "Refreshed List"
 
