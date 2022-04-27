@@ -29,9 +29,14 @@ jobs:
         python refresh.py
     - name: Commit
       run: |
-        git config --global user.name 'saschazesiger'
-        git config --global user.email 'janis.zesiger@gmail.com'
-        git remote set-url origin 'https://x-access-token:${{ secrets.API_TOKEN_GITHUB }}@github.com/saschazesiger/Proxy-Grabber-and-Checker'
-        git commit -am "Just a test"
-        git push
+        git config --local user.email 'janis.zesiger@gmail.com'
+        git config --local user.name 'saschazesiger'
+        git commit -am "Refresh"
+    - name: Push
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.API_TOKEN_GITHUB }}
+      env:
+        CI: true
+
 
