@@ -28,7 +28,6 @@ jobs:
         chmod 777 chromedriver
         python refresh.py
     - name: Pushes to Free-Proxies
-      id: push_directory
       uses: saschazesiger/Proxy-Grabber-and-Checker@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
