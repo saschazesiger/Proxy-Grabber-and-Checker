@@ -27,14 +27,14 @@ jobs:
         mkdir output/
         chmod 777 chromedriver
         python refresh.py
-    - name: Pushes to Free-Proxies
-      uses: saschazesiger/Proxy-Grabber-and-Checker@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+    - name: Commit
+      run: |
+        git config --local user.email janis.zesiger@gmail.com
+        git config --local user.name saschazesiger
+        git commit -am "Refreshed List"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        source-directory: 'output/'
-        user_name: 'saschazesiger'
-        destination_repo: 'saschazesiger/Free-Proxies'
-        user-email: 'janis.zesiger@gmail.com'
-        commit-message: 'Refresh'
-        target-branch: 'main'
+        github_token: ${{ secrets.API_TOKEN_GITHUB }}
+      env:
+        CI: true
