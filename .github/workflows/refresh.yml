@@ -31,7 +31,7 @@ jobs:
       run: |
         git config --global user.name 'saschazesiger'
         git config --global user.email 'janis.zesiger@gmail.com'
-        git remote set-url origin 'https://x-access-token:${{ secrets.API_TOKEN_GITHUB }}@github.com/Proxy-Grabber-and-Checker'
+        git remote set-url origin 'https://x-access-token:${{ secrets.API_TOKEN_GITHUB }}@github.com/saschazesiger/Proxy-Grabber-and-Checker'
         git commit -am "Just a test"
         git push
 
