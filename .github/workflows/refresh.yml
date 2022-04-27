@@ -14,9 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-        fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -32,20 +29,8 @@ jobs:
         python refresh.py
     - name: Commit
       run: |
-<<<<<<< HEAD
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git commit -m "Add changes" -a
-    - name: Push
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
-
-=======
         git config --local user.email 'saschazesiger@users.noreply.github.com'
         git config --local user.name 'saschazesiger'
-        git remote set-url origin 'https://x-access-token:${{secrets.API_TOKEN_GITHUB}}@github.com/saschazesiger/Free-Proxies.git'
+        git remote set-url origin 'https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/saschazesiger/Free-Proxies.git'
         git commit -am "Refreshed List"
->>>>>>> parent of 467b099 (Update refresh.yml)
-
+        git push
