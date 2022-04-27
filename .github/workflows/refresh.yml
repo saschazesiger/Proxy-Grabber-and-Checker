@@ -33,4 +33,5 @@ jobs:
         git config --local user.name 'saschazesiger'
         git remote set-url origin 'https://x-access-token:${{secrets.API_TOKEN_GITHUB}}@github.com/saschazesiger/Free-Proxies.git'
         git commit -am "Refreshed List"
+        git push
 
