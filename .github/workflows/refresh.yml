@@ -29,9 +29,10 @@ jobs:
         python refresh.py
     - name: Commit
       run: |
-        git config --local user.email "janis.zesiger@gmail.com"
-        git config --local user.name "saschazesiger"
-        git commit -am "Updated Proxies"
-        git push https://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@github.com/saschazesiger/Free-Proxies.git
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+        git add -A
+        git commit -m "output/"
+        git push
 
