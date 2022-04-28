@@ -126,6 +126,7 @@ def normalizer():
         readme = f.read()
     pall = pall.replace(";", "|")
     readme = readme.replace("#var-list", pall)
+    print(readme)
     with open("./README.md", "w") as f:
         f.write(readme)
     
@@ -178,7 +179,3 @@ def start():
     print("Finish")
 
 start()
-
-with open("./proxies/provider.csv", "r") as f:
-    providers = f.read()
-print(providers)
