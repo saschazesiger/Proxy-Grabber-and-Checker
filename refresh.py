@@ -39,9 +39,9 @@ def gethtmljs(url, log):
         proxies = extract(html)
     rooturl = getrooturl(url)
     proxylist =  '\n'.join([str(elem) for elem in proxies])
-    with open("./output/raw.txt", "a") as f:
+    with open("./proxies/raw.txt", "a") as f:
         f.write(f"{proxylist}\n")
-    with open("./output/provider.csv", "a") as f:
+    with open("./proxies/provider.csv", "a") as f:
         f.write(f"{rooturl};{len(proxies)}\n")
     return proxies
 
@@ -83,9 +83,9 @@ def gethtml(url, log):
         proxies = extract(html)
     rooturl = getrooturl(url)
     proxylist =  '\n'.join([str(elem) for elem in proxies])
-    with open("./output/raw.txt", "a") as f:
+    with open("./proxies/raw.txt", "a") as f:
         f.write(f"{proxylist}\n")
-    with open("./output/provider.csv", "a") as f:
+    with open("./proxies/provider.csv", "a") as f:
         f.write(f"{rooturl};{len(proxies)}\n")
     return proxies
 
@@ -105,7 +105,7 @@ def extract(html):
     return proxies
 
 def normalizer():
-    with open("./output/provider.csv", "r") as f:
+    with open("./proxies/provider.csv", "r") as f:
         providers = f.readlines()
     providers.sort()
     p0 = ""
@@ -123,12 +123,12 @@ def normalizer():
             except:
                 pass
         p0 = p[0]
-    with open("./output/provider.csv", "w") as f:
+    with open("./proxies/provider.csv", "w") as f:
         f.write(pall)
         
 
 
-    with open("./output/raw.txt", "r") as f:
+    with open("./proxies/raw.txt", "r") as f:
         proxies = f.readlines()
     proxies.sort()
     before = ""
@@ -141,18 +141,18 @@ def normalizer():
             proxiesdup = proxiesdup + proxy
             nodups = nodups + 1
         before = proxy
-    with open("./output/provider.csv", "a") as f:
+    with open("./proxies/provider.csv", "a") as f:
         f.write(f"All: {all}, Without Duplicates: {nodups}")
-    with open("./output/all.txt", "w") as f:
+    with open("./proxies/all.txt", "w") as f:
         f.write(proxiesdup)
 
 
 def start():
     with open("./Sources.txt", "r") as f:
         sources = f.readlines()
-    with open("./output/raw.txt", "w") as f:
+    with open("./proxies/raw.txt", "w") as f:
         f.write("")
-    with open("./output/provider.csv", "w") as f:
+    with open("./proxies/provider.csv", "w") as f:
         f.write("")
     thread = []
     log = ""
@@ -175,6 +175,6 @@ def start():
 
 start()
 
-with open("./output/provider.csv", "r") as f:
+with open("./proxies/provider.csv", "r") as f:
     providers = f.read()
 print(providers)
