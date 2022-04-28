@@ -26,7 +26,10 @@ def gethtmljs(url, log):
             clock = clock + 1
             num = num - 1
             newurl = url.replace("[page]", f"{clock}").replace(f"[{denum}]", "")
-            html = gethtmljsraw(newurl)
+            try:
+                html = gethtmljsraw(newurl)
+            except:
+                html = ""
             newproxies = extract(html)
             proxies.extend(newproxies)
             if len(newproxies) < 1:
@@ -70,7 +73,10 @@ def gethtml(url, log):
                 clock = clock + 1
             num = num - 1
             newurl = url.replace("[page]", f"{clock}").replace(f"[{denum}]", "")
-            html = gethtmlraw(newurl)
+            try:
+                html = gethtmlraw(newurl)
+            except:
+                html = ""
             newproxies = extract(html)
             proxies.extend(newproxies)
             if len(newproxies) < 1:
@@ -148,6 +154,34 @@ def normalizer():
     with open("./README.md", "w") as f:
         f.write(readme)
 
+def checker(proxy, log):
+    url = "http://ip-api.com/csv/?fields=continent,country,isp"
+    try:
+        resp = requests.get(url, proxies=dict(http=f'socks5://{proxy}'), timeout=10)
+        print(resp)
+        if resp.status_code == 200:
+            with open("./working.csv", "a") as f:
+                f.write(f"{proxy};socks5;{resp.elapsed.total_seconds()};{resp.text}")
+        else:
+            raise ValueError('Wrong Statuscode')
+    except Exception as e:
+        print(e)
+        try:
+            resp = requests.get(url, proxies=dict(http=f'socks4://{proxy}'), timeout=10)
+            if resp.status_code == 200:
+                with open("./working.csv", "a") as f:
+                    f.write(f"{proxy};socks4;{resp.elapsed.total_seconds()};{resp.text}")
+            else:
+                raise ValueError('Wrong Statuscode')
+        except:
+            try:
+                resp = requests.get(url, proxies=dict(http=f'http://{proxy}'), timeout=10)
+                if resp.status_code == 200:
+                    with open("./working.csv", "a") as f:
+                        f.write(f"{proxy};http;{resp.elapsed.total_seconds()};{resp.text}")
+            except:
+                print("notworking")
+
 
 def start():
     with open("./Sources.txt", "r") as f:
@@ -155,6 +189,8 @@ def start():
     with open("./proxies/raw.txt", "w") as f:
         f.write("")
     with open("./proxies/provider.csv", "w") as f:
+        f.write("")
+    with open("./proxies/working.csv", "w") as f:
         f.write("")
     thread = []
     log = ""
@@ -173,6 +209,16 @@ def start():
     for j in thread:
         j.join() 
     normalizer()
+    with open("./proxies/all.txt", "r") as f:
+        all = f.readlines()
+    for a in all:
+        proxy = a.replace("\n", "")
+        t = threading.Thread(target=checker, args=(proxy, log))
+        t.start()
+        thread.append(t)
+    for j in thread:
+        j.join() 
     print("Finish")
 
-start()
+#start()
+checker("103.11.106.48:80", "test")
