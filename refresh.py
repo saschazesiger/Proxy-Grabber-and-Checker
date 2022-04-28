@@ -286,8 +286,8 @@ def start():
         thread.append(t)
     for j in thread:
         j.join() 
-createfiles()
-print("Finish")
+    createfiles()
+    print("Finish")
     
 
-#start()
+start()
