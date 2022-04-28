@@ -25,14 +25,14 @@ https://www.freeproxy.world/
 https://free-proxy-list.net/
 
 MULTIPLE PAGES: ([page] for automatic Sitenumber, [0-999] for max crawled pages)
-[10]https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=[page]
-[10]https://hidemy.name/en/proxy-list/?start=[page]
-[10]https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-[page]
-[10]https://free-proxy-list.com/?page=[page]&port=&up_time=0
+[25]https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=[page]
+[25]https://hidemy.name/en/proxy-list/?start=[page]
+[25]https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-[page]
+[25]https://free-proxy-list.com/?page=[page]&port=&up_time=0
 
 NEED JS:
-[10][js]https://advanced.name/freeproxy?page=[page]
-[10][js]https://proxy-list.org/german/index.php?p=[page]
+[15][js]https://advanced.name/freeproxy?page=[page]
+[15][js]https://proxy-list.org/german/index.php?p=[page]
 [js]https://www.proxyrack.com/free-proxy-list/
 [js]https://www.proxydocker.com/
 [js]https://proxyservers.pro/
