@@ -10,7 +10,7 @@
 
 ## ⤴️ Stats
 
-Update Frequency: ```Every 15 minutes```
+Update Frequency: ```Every 30 minutes```
 
 Type | Number | Link | File
 --- | --- | --- | ---
