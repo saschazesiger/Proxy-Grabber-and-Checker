@@ -202,6 +202,8 @@ def createfiles():
             f.write("")
         with open("./proxies/medium.txt", "w") as f:
             f.write("")
+        with open("./proxies/working.txt", "w") as f:
+            f.write("")
         
         nhttp = 0
         nsocks4 = 0
@@ -215,6 +217,8 @@ def createfiles():
         for w in working:
             all = all + 1
             proxy = w.replace("\n", "").split(",")
+            with open("./proxies/working.txt", "a") as f:
+                f.write(f"{proxy[0]}\n")
             if proxy[1] == "http":
                 nhttp = nhttp + 1
                 with open("./proxies/http.txt", "a") as f:
