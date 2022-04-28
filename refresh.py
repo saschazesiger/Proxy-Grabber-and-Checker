@@ -144,7 +144,7 @@ def normalizer():
         f.write(f"All: {all}, Without Duplicates: {nodups}")
     with open("./proxies/all.txt", "w") as f:
         f.write(proxiesdup)
-    readme = readme.replace("#var-fetched", all).replace("#var-unique", nodups)
+    readme = readme.replace("#var-fetched", f"{all}").replace("#var-unique", f"{nodups}")
     with open("./README.md", "w") as f:
         f.write(readme)
 
