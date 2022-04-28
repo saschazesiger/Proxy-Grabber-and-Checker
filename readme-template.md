@@ -31,7 +31,7 @@ Ultra Slow (15s+ Ping) | ```#var-ultraslow``` | [GitHub](https://github.com/sasc
 
 ## 📋 Description
 
-Proxies from various sources are regularly crawled and validated in this repository. Subsequently, they are divided into type and speed. All lists can be downloaded in the section above. The source code for the crawler & checker can be found in the links section. Since these are free proxies that anyone can use without restriction, they are mostly slow, insecure and blacklisted. Nevertheless they are suitable for testing and other (legal) activities. (I do not take any liability)
+Proxies from various sources are regularly crawled and validated in this repository. Subsequently, they are divided into type and speed. All lists can be downloaded in the section above. The source code for the crawler & checker can be found in the links section. Since these are free proxies that anyone can use without restriction, they are mostly slow, insecure and blacklisted. Nevertheless they are suitable for testing and other (legal) activities. (I don't take any liability).
 
 ## 🏠 Providers
 | Website  | Number of Proxies fetched |
