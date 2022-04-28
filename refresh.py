@@ -126,13 +126,7 @@ def normalizer():
         readme = f.read()
     pall = pall.replace(";", "|")
     readme = readme.replace("#var-list", pall)
-    print(readme)
-    with open("./README.md", "w") as f:
-        f.write(readme)
     
-        
-
-
     with open("./proxies/raw.txt", "r") as f:
         proxies = f.readlines()
     proxies.sort()
@@ -150,6 +144,9 @@ def normalizer():
         f.write(f"All: {all}, Without Duplicates: {nodups}")
     with open("./proxies/all.txt", "w") as f:
         f.write(proxiesdup)
+    readme = readme.replace("#var-fetched", all).replace("#var-unique", nodups)
+    with open("./README.md", "w") as f:
+        f.write(readme)
 
 
 def start():
