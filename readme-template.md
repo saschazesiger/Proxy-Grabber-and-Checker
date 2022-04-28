@@ -29,6 +29,10 @@ Medium (<7s Ping) | ```#var-medium``` | [GitHub](https://github.com/saschazesige
 Slow (<15s Ping) | ```#var-slow``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/slow.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/slow.txt)
 Ultra Slow (15s+ Ping) | ```#var-ultraslow``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/ultraslow.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/ultraslow.txt)
 
+## 📋 Description
+
+Proxies from various sources are regularly crawled and validated in this repository. Subsequently, they are divided into type and speed. All lists can be downloaded in the section above. The source code for the crawler & checker can be found in the links section. Since these are free proxies that anyone can use without restriction, they are mostly slow, insecure and blacklisted. Nevertheless they are suitable for testing and other (legal) activities. (I do not take any liability)
+
 ## 🏠 Providers
 | Website  | Number of Proxies fetched |
 | ------------- |:-------------:|
@@ -36,4 +40,4 @@ Ultra Slow (15s+ Ping) | ```#var-ultraslow``` | [GitHub](https://github.com/sasc
 
 ## 🔗 Links
 
-The project gets updated using [this repository](https://github.com/saschazesiger/Proxy-Grabber-and-Checker).
+The project gets updated using [this repository](https://github.com/saschazesiger/Proxy-Grabber-and-Checker) and checks proxies with [this](https://github.com/saschazesiger/Proxy-Test-Website).
