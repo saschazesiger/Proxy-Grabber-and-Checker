@@ -3,10 +3,10 @@
 ## 🚀 Contains Proxies of over 50 Providers and is updated regularely
 
 [![Refresh](https://github.com/saschazesiger/Free-Proxies/actions/workflows/update.yml/badge.svg)](https://github.com/saschazesiger/Free-Proxies/actions/workflows/update.yml)
-[![Commits](https://img.shields.io/github/last-commit/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/commits/main)
-[![Commits](https://img.shields.io/github/commit-activity/w/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/commits/main)
+[![Commits](https://img.shields.io/github/last-commit/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/commits/master)
+[![Commits](https://img.shields.io/github/commit-activity/w/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/commits/master)
 [![Issues](https://img.shields.io/github/issues/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/issues)
-[![License](https://img.shields.io/github/license/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/blob/master/LICENSE)
 
 ## ⤴️ Stats
 
