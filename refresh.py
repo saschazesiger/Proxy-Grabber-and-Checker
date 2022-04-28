@@ -1,3 +1,4 @@
+from ast import Num
 from email import charset
 from ftplib import parse150
 from selenium import webdriver #pip install selenium
@@ -155,22 +156,22 @@ def normalizer():
         f.write(readme)
 
 def checker(proxy, log):
-    url = "http://ip-api.com/csv/?fields=continent,country,isp"
+    url = "http://test.js0.ch/"
     try:
         resp = requests.get(url, proxies=dict(http=f'socks5://{proxy}'), timeout=10)
-        print(resp)
+        #print(resp)
         if resp.status_code == 200:
             with open("./working.csv", "a") as f:
-                f.write(f"{proxy};socks5;{resp.elapsed.total_seconds()};{resp.text}")
+                f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
         else:
             raise ValueError('Wrong Statuscode')
     except Exception as e:
-        print(e)
+        #print(e)
         try:
             resp = requests.get(url, proxies=dict(http=f'socks4://{proxy}'), timeout=10)
             if resp.status_code == 200:
                 with open("./working.csv", "a") as f:
-                    f.write(f"{proxy};socks4;{resp.elapsed.total_seconds()};{resp.text}")
+                    f.write(f"{proxy},socks4,{resp.elapsed.total_seconds()}\n")
             else:
                 raise ValueError('Wrong Statuscode')
         except:
@@ -178,10 +179,75 @@ def checker(proxy, log):
                 resp = requests.get(url, proxies=dict(http=f'http://{proxy}'), timeout=10)
                 if resp.status_code == 200:
                     with open("./working.csv", "a") as f:
-                        f.write(f"{proxy};http;{resp.elapsed.total_seconds()};{resp.text}")
+                        f.write(f"{proxy},http,{resp.elapsed.total_seconds()}\n")
             except:
-                print("notworking")
+                pass
 
+def createfiles():
+   with open("./proxies/working.csv", "r") as f:
+        working = f.readlines() 
+        with open("./proxies/http.txt", "w") as f:
+            f.write("")
+        with open("./proxies/socks4.txt", "w") as f:
+            f.write("")
+        with open("./proxies/socks5.txt", "w") as f:
+            f.write("")
+        with open("./proxies/ultrafast.txt", "w") as f:
+            f.write("")
+        with open("./proxies/fast.txt", "w") as f:
+            f.write("")
+        with open("./proxies/slow.txt", "w") as f:
+            f.write("")
+        with open("./proxies/ultraslow.txt", "w") as f:
+            f.write("")
+        with open("./proxies/medium.txt", "w") as f:
+            f.write("")
+        
+        nhttp = 0
+        nsocks4 = 0
+        nsocks5 = 0
+        all = 0
+        nultrafast = 0
+        nfast = 0
+        nmedium = 0
+        nslow = 0
+        nultraslow = 0
+        for w in working:
+            all = all + 1
+            proxy = w.replace("\n", "").split(",")
+            if proxy[1] == "http":
+                nhttp = nhttp + 1
+                with open("./proxies/http.txt", "a") as f:
+                    f.write(f"{proxy[0]}\n")
+            elif proxy[1] == "socks4":
+                nsocks4 = nsocks4 + 1
+                with open("./proxies/socks4.txt", "a") as f:
+                    f.write(f"{proxy[0]}\n")
+            elif proxy[1] == "socks5":
+                nsocks5 = nsocks5 + 1
+                with open("./proxies/socks5.txt", "a") as f:
+                    f.write(f"{proxy[0]}\n")
+            if float(proxy[2]) < 1:
+                nultrafast = nultrafast + 1
+                with open("./proxies/ultrafast.txt", "a") as f:
+                    f.write(f"{proxy[0]}\n")      
+            elif float(proxy[2]) < 3:
+                nfast = nfast + 1
+                with open("./proxies/fast.txt", "a") as f:
+                    f.write(f"{proxy[0]}\n")  
+            elif float(proxy[2]) < 7:
+                nmedium = nmedium + 1
+                with open("./proxies/medium.txt", "a") as f:
+                    f.write(f"{proxy[0]}\n")  
+            elif float(proxy[2]) < 15:
+                nslow = nslow + 1
+                with open("./proxies/slow.txt", "a") as f:
+                    f.write(f"{proxy[0]}\n")  
+            elif float(proxy[2]) >= 15:
+                nultraslow = nultraslow + 1
+                with open("./proxies/ultraslow.txt", "a") as f:
+                    f.write(f"{proxy[0]}\n")  
+            
 
 def start():
     with open("./Sources.txt", "r") as f:
@@ -209,6 +275,8 @@ def start():
     for j in thread:
         j.join() 
     normalizer()
+    thread = []
+    log = ""
     with open("./proxies/all.txt", "r") as f:
         all = f.readlines()
     for a in all:
@@ -218,7 +286,8 @@ def start():
         thread.append(t)
     for j in thread:
         j.join() 
-    print("Finish")
+createfiles()
+print("Finish")
+    
 
 #start()
-checker("103.11.106.48:80", "test")
