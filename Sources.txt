@@ -24,6 +24,7 @@ https://www.proxy-list.download/SOCKS5
 https://www.freeproxy.world/
 https://free-proxy-list.net/
 
+
 MULTIPLE PAGES: ([page] for automatic Sitenumber, [0-999] for max crawled pages)
 [25]https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=[page]
 [25]https://hidemy.name/en/proxy-list/?start=[page]
@@ -41,6 +42,9 @@ NEED JS:
 [js]https://www.proxynova.com/proxy-server-list/
 [js]https://premproxy.com/list/
 [js]https://scrapingant.com/free-proxies/
+[js]https://proxydig.com/free-proxy-list/
+[js]https://apiproxyfree.com/
+[js]http://www.cybersyndrome.net/pla6.html
 
 HTTP RAW:
 https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt
