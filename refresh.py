@@ -161,7 +161,7 @@ def checker(proxy, log):
         resp = requests.get(url, proxies=dict(http=f'socks5://{proxy}'), timeout=10)
         #print(resp)
         if resp.status_code == 200:
-            with open("./working.csv", "a") as f:
+            with open("./proxies/working.csv", "a") as f:
                 f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
         else:
             raise ValueError('Wrong Statuscode')
@@ -170,7 +170,7 @@ def checker(proxy, log):
         try:
             resp = requests.get(url, proxies=dict(http=f'socks4://{proxy}'), timeout=10)
             if resp.status_code == 200:
-                with open("./working.csv", "a") as f:
+                with open("./proxies/working.csv", "a") as f:
                     f.write(f"{proxy},socks4,{resp.elapsed.total_seconds()}\n")
             else:
                 raise ValueError('Wrong Statuscode')
@@ -178,7 +178,7 @@ def checker(proxy, log):
             try:
                 resp = requests.get(url, proxies=dict(http=f'http://{proxy}'), timeout=10)
                 if resp.status_code == 200:
-                    with open("./working.csv", "a") as f:
+                    with open("./proxies/working.csv", "a") as f:
                         f.write(f"{proxy},http,{resp.elapsed.total_seconds()}\n")
             except:
                 pass
@@ -247,6 +247,9 @@ def createfiles():
                 nultraslow = nultraslow + 1
                 with open("./proxies/ultraslow.txt", "a") as f:
                     f.write(f"{proxy[0]}\n")  
+        with open("./README.md", "r") as f:
+            readme = f.read()
+        readme = readme.replace("#var-working", all).replace("#var-http", nhttp).replace("#var-socks4", nsocks4).replace("#var-socks5", nsocks5).replace("#var-ultrafast", nultrafast).replace("#var-fast", nfast).replace("#var-medium", nmedium).replace("#var-slow", nslow).replace("#var-ultraslow", nultraslow)
             
 
 def start():
