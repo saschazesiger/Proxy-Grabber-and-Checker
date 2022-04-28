@@ -122,11 +122,11 @@ def normalizer():
         p0 = p[0]
     with open("./proxies/provider.csv", "w") as f:
         f.write(pall)
-    with open("./readme.me", "r") as f:
+    with open("./README.me", "r") as f:
         readme = f.read()
     pall = pall.replace(";", "|")
     readme = readme.replace("#var-list", pall)
-    with open("./readme.me", "w") as f:
+    with open("./README.me", "w") as f:
         f.write(readme)
     
         
