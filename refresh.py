@@ -249,8 +249,9 @@ def createfiles():
                     f.write(f"{proxy[0]}\n")  
         with open("./README.md", "r") as f:
             readme = f.read()
-        readme = readme.replace("#var-working", all).replace("#var-http", nhttp).replace("#var-socks4", nsocks4).replace("#var-socks5", nsocks5).replace("#var-ultrafast", nultrafast).replace("#var-fast", nfast).replace("#var-medium", nmedium).replace("#var-slow", nslow).replace("#var-ultraslow", nultraslow)
-            
+        readme = readme.replace("#var-working", f"{all}").replace("#var-http", f"{nhttp}").replace("#var-socks4", f"{nsocks4}").replace("#var-socks5", f"{nsocks5}").replace("#var-ultrafast", f"{nultrafast}").replace("#var-fast", f"{nfast}").replace("#var-medium", f"{nmedium}").replace("#var-slow", f"{nslow}").replace("#var-ultraslow", f"{nultraslow}")
+        with open("./README.md", "w") as f:
+            f.write(readme)   
 
 def start():
     with open("./Sources.txt", "r") as f:
