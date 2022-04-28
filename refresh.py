@@ -7,9 +7,6 @@ import re
 import threading
 import requests
 
-url = 'https://advanced.name/freeproxy?page=1'
-
-
 def getrooturl(url):
     if "raw.githubusercontent.com" in url:
         root = "github-"+url.split("/")[3]
@@ -125,6 +122,13 @@ def normalizer():
         p0 = p[0]
     with open("./proxies/provider.csv", "w") as f:
         f.write(pall)
+    with open("./readme.me", "r") as f:
+        readme = f.read()
+    pall = pall.replace(";", "|")
+    readme = readme.replace("#var-list", pall)
+    with open("./readme.me", "w") as f:
+        f.write(readme)
+    
         
 
 
