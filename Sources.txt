@@ -41,8 +41,6 @@ NEED JS:
 [js]https://premiumproxy.net/full-proxy-list
 [js]https://www.proxynova.com/proxy-server-list/
 [js]https://premproxy.com/list/
-[js]https://scrapingant.com/free-proxies/
-[js]https://proxydig.com/free-proxy-list/
 [js]https://apiproxyfree.com/
 [js]http://www.cybersyndrome.net/pla6.html
 
