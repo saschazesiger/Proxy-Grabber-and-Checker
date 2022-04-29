@@ -48,4 +48,4 @@ Proxies from various sources are regularly crawled and validated in this reposit
 
 ## 🔗 Links
 
-The project gets updated using [this repository](https://github.com/saschazesiger/Proxy-Grabber-and-Checker) and checks proxies using [this](https://github.com/saschazesiger/Proxy-Test-Website) light website so that the proxies aren't unnecessarily overloaded.
+The project gets updated using [this repository](https://github.com/saschazesiger/Proxy-Grabber-and-Checker) and checks proxies with [this](https://github.com/saschazesiger/Proxy-Test-Website).
