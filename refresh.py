@@ -281,16 +281,16 @@ def addold():
 def filterold():
     premium = ""
     npremium = 0
-    with open("./working.txt", "r") as f:
+    with open("./proxies/working.txt", "r") as f:
         working = f.readlines()
-    with open("./working-lastrun.txt", "r") as f:
+    with open("./proxies/working-lastrun.txt", "r") as f:
         lastrun = f.read()
     for w in working:
         proxy = w.replace("\n", "")
         if proxy in lastrun:
             npremium = npremium + 1
             premium = premium + proxy + "\n"
-    with open("./premium.txt", "w") as f:
+    with open("./proxies/premium.txt", "w") as f:
         f.write(premium)
         with open("./README.md", "r") as f:
             readme = f.read()
@@ -329,6 +329,7 @@ def start():
     for j in thread:
         j.join() 
     normalizer()
+    addold()
     thread = []
     log = ""
     with open("./proxies/all.txt", "r") as f:
