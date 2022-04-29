@@ -11,9 +11,6 @@ http://proxydb.net/?protocol=socks5
 https://www.us-proxy.org/
 https://premiumproxy.net/
 https://www.netzwelt.de/proxy/index.html
-https://openproxy.space/list/http
-https://openproxy.space/list/socks4
-https://openproxy.space/list/socks5
 https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all
 https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=10000&country=all
 https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks5&timeout=10000&country=all
@@ -34,7 +31,6 @@ MULTIPLE PAGES: ([page] for automatic Sitenumber, [0-999] for max crawled pages)
 NEED JS:
 [15][js]https://advanced.name/freeproxy?page=[page]
 [15][js]https://proxy-list.org/german/index.php?p=[page]
-[js]https://www.proxyrack.com/free-proxy-list/
 [js]https://www.proxydocker.com/
 [js]https://proxyservers.pro/
 [js]https://proxy-daily.com/
@@ -43,6 +39,9 @@ NEED JS:
 [js]https://premproxy.com/list/
 [js]https://apiproxyfree.com/
 [js]http://www.cybersyndrome.net/pla6.html
+[js]https://openproxy.space/list/http
+[js]https://openproxy.space/list/socks4
+[js]https://openproxy.space/list/socks5
 
 HTTP RAW:
 https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt
