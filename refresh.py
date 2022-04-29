@@ -159,14 +159,12 @@ def checker(proxy, log):
     url = "http://test.js0.ch/"
     try:
         resp = requests.get(url, proxies=dict(http=f'socks5://{proxy}'), timeout=10)
-        #print(resp)
         if resp.status_code == 200:
             with open("./proxies/working.csv", "a") as f:
                 f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
         else:
             raise ValueError('Wrong Statuscode')
     except Exception as e:
-        #print(e)
         try:
             resp = requests.get(url, proxies=dict(http=f'socks4://{proxy}'), timeout=10)
             if resp.status_code == 200:
@@ -184,7 +182,7 @@ def checker(proxy, log):
                 pass
 
 def createfiles():
-   with open("./proxies/working.csv", "r") as f:
+    with open("./proxies/working.csv", "r") as f:
         working = f.readlines() 
         with open("./proxies/http.txt", "w") as f:
             f.write("")
@@ -257,6 +255,50 @@ def createfiles():
         with open("./README.md", "w") as f:
             f.write(readme)   
 
+def addold():
+    with open("./proxies/nodups.txt", "r") as f:
+        nodups = f.readlines()
+    with open("./proxies/working-lastrun.txt", "r") as f:
+        lastrun = f.read()
+    nnew = 0
+    new = ""
+    for n in nodups:
+        proxy = n.replace("\n", "")
+        if proxy in lastrun:
+            pass
+        else:
+            nnew = nnew + 1
+            lastrun = lastrun + proxy + "\n"
+            new = new + proxy + "\n"
+    with open("./README.md", "r") as f:
+        readme = f.read()
+    readme = readme.replace("#var-new", f"{nnew}")
+    with open("./README.md", "w") as f:
+        f.write(readme) 
+    with open("./proxies/new.txt", "w") as f:
+        f.write(new) 
+
+def filterold():
+    premium = ""
+    npremium = 0
+    with open("./working.txt", "r") as f:
+        working = f.readlines()
+    with open("./working-lastrun.txt", "r") as f:
+        lastrun = f.read()
+    for w in working:
+        proxy = w.replace("\n", "")
+        if proxy in lastrun:
+            npremium = npremium + 1
+            premium = premium + proxy + "\n"
+    with open("./premium.txt", "w") as f:
+        f.write(premium)
+        with open("./README.md", "r") as f:
+            readme = f.read()
+        readme = readme.replace("#var-premium", f"{npremium}")
+        with open("./README.md", "w") as f:
+            f.write(readme)  
+
+
 def start():
     with open("./Sources.txt", "r") as f:
         sources = f.readlines()
@@ -264,6 +306,10 @@ def start():
         f.write("")
     with open("./proxies/provider.csv", "w") as f:
         f.write("")
+    with open("./proxies/working.txt", "r") as f:
+        oldworking = f.read()
+    with open("./proxies/working-lastrun.txt", "w") as f:
+        f.write(oldworking)
     with open("./proxies/working.csv", "w") as f:
         f.write("")
     thread = []
@@ -295,6 +341,7 @@ def start():
     for j in thread:
         j.join() 
     createfiles()
+    filterold()
     print("Finish")
     
 
