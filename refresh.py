@@ -256,7 +256,7 @@ def createfiles():
             f.write(readme)   
 
 def addold():
-    with open("./proxies/nodups.txt", "r") as f:
+    with open("./proxies/all.txt", "r") as f:
         nodups = f.readlines()
     with open("./proxies/working-lastrun.txt", "r") as f:
         lastrun = f.read()
