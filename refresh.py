@@ -133,7 +133,6 @@ def normalizer():
         readme = f.read()
     pall = pall.replace(";", "|")
     readme = readme.replace("#var-list", pall)
-    
     with open("./proxies/raw.txt", "r") as f:
         proxies = f.readlines()
     proxies.sort()
@@ -151,7 +150,10 @@ def normalizer():
         f.write(f"All: {all}, Without Duplicates: {nodups}")
     with open("./proxies/all.txt", "w") as f:
         f.write(proxiesdup)
-    readme = readme.replace("#var-fetched", f"{all}").replace("#var-unique", f"{nodups}")
+    with open("./proxies/insecure.csv", "r") as f:
+        insecure = f.readlines()
+    insecure = len(insecure)
+    readme = readme.replace("#var-fetched", f"{all}").replace("#var-unique", f"{nodups}").replace("#var-insecure", f"{insecure}")
     with open("./README.md", "w") as f:
         f.write(readme)
 
@@ -160,24 +162,36 @@ def checker(proxy, log):
     try:
         resp = requests.get(url, proxies=dict(http=f'socks5://{proxy}'), timeout=10)
         if resp.status_code == 200:
-            with open("./proxies/working.csv", "a") as f:
-                f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
+            if resp.text == "ok":
+                with open("./proxies/working.csv", "a") as f:
+                    f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
+            else:
+                with open("./proxies/insecure.csv", "a") as f:
+                    f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
         else:
             raise ValueError('Wrong Statuscode')
     except Exception as e:
         try:
             resp = requests.get(url, proxies=dict(http=f'socks4://{proxy}'), timeout=10)
             if resp.status_code == 200:
-                with open("./proxies/working.csv", "a") as f:
-                    f.write(f"{proxy},socks4,{resp.elapsed.total_seconds()}\n")
+                if resp.text == "ok":
+                    with open("./proxies/working.csv", "a") as f:
+                        f.write(f"{proxy},socks4,{resp.elapsed.total_seconds()}\n")
+                else:
+                    with open("./proxies/insecure.csv", "a") as f:
+                        f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
             else:
                 raise ValueError('Wrong Statuscode')
         except:
             try:
                 resp = requests.get(url, proxies=dict(http=f'http://{proxy}'), timeout=10)
                 if resp.status_code == 200:
-                    with open("./proxies/working.csv", "a") as f:
-                        f.write(f"{proxy},http,{resp.elapsed.total_seconds()}\n")
+                    if resp.text == "ok":
+                        with open("./proxies/working.csv", "a") as f:
+                            f.write(f"{proxy},http,{resp.elapsed.total_seconds()}\n")
+                    else:
+                        with open("./proxies/insecure.csv", "a") as f:
+                            f.write(f"{proxy},http,{resp.elapsed.total_seconds()}\n")
             except:
                 pass
 
@@ -311,6 +325,8 @@ def start():
     with open("./proxies/working-lastrun.txt", "w") as f:
         f.write(oldworking)
     with open("./proxies/working.csv", "w") as f:
+        f.write("")
+    with open("./proxies/insecure.csv", "w") as f:
         f.write("")
     thread = []
     log = ""
