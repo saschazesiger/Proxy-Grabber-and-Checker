@@ -158,7 +158,7 @@ def normalizer():
 def checker(proxy, log):
     url = "http://test.js0.ch/"
     try:
-        resp = requests.get(url, proxies=dict(http=f'socks5://{proxy}'), timeout=15)
+        resp = requests.get(url, proxies=dict(http=f'socks5://{proxy}'), timeout=10)
         #print(resp)
         if resp.status_code == 200:
             if resp.text == "ok\n":
@@ -173,7 +173,7 @@ def checker(proxy, log):
     except Exception as e:
         #print(e)
         try:
-            resp = requests.get(url, proxies=dict(http=f'socks4://{proxy}'), timeout=15)
+            resp = requests.get(url, proxies=dict(http=f'socks4://{proxy}'), timeout=10)
             if resp.status_code == 200:
                 if resp.text == "ok\n":
                     with open("./proxies/working.csv", "a") as f:
@@ -186,7 +186,7 @@ def checker(proxy, log):
                     f.write(f"{proxy},socks4,{resp.elapsed.total_seconds()}\n")
         except:
             try:
-                resp = requests.get(url, proxies=dict(http=f'http://{proxy}'), timeout=15)
+                resp = requests.get(url, proxies=dict(http=f'http://{proxy}'), timeout=10)
                 if resp.status_code == 200:
                     if resp.text == "ok\n":
                         with open("./proxies/working.csv", "a") as f:
@@ -202,27 +202,54 @@ def checker(proxy, log):
 
 
 def createfiles():
-   with open("./proxies/working.csv", "r") as f:
-        working = f.readlines() 
-        with open("./proxies/http.txt", "w") as f:
-            f.write("")
-        with open("./proxies/socks4.txt", "w") as f:
-            f.write("")
-        with open("./proxies/socks5.txt", "w") as f:
-            f.write("")
-        with open("./proxies/ultrafast.txt", "w") as f:
-            f.write("")
-        with open("./proxies/fast.txt", "w") as f:
-            f.write("")
-        with open("./proxies/slow.txt", "w") as f:
-            f.write("")
-        with open("./proxies/ultraslow.txt", "w") as f:
-            f.write("")
-        with open("./proxies/medium.txt", "w") as f:
-            f.write("")
-        with open("./proxies/working.txt", "w") as f:
-            f.write("")
+    with open("./proxies/http.txt", "w") as f:
+        f.write("")
+    with open("./proxies/socks4.txt", "w") as f:
+        f.write("")
+    with open("./proxies/socks5.txt", "w") as f:
+        f.write("")
+    with open("./proxies/ultrafast.txt", "w") as f:
+        f.write("")
+    with open("./proxies/fast.txt", "w") as f:
+        f.write("")
+    with open("./proxies/slow.txt", "w") as f:
+        f.write("")
+    with open("./proxies/ultraslow.txt", "w") as f:
+        f.write("")
+    with open("./proxies/medium.txt", "w") as f:
+        f.write("")
+    with open("./proxies/working.txt", "w") as f:
+        f.write("")
+    with open("./proxies/excluded.txt", "w") as f:
+        f.write("")
+    with open("./proxies/misconfigured.txt", "w") as f:
+        f.write("")
         
+    
+    with open("./proxies/excluded.csv", "r") as f:
+        excludedproxies = f.readlines()
+        nexcluded = 0
+        excluded = ""
+        for e in excludedproxies:
+            nexcluded = nexcluded + 1
+            proxy = e.split(",")[0]
+            excluded = excluded + proxy + "\n"
+    with open("./excluded.txt", "w") as f:
+        f.write(excluded)
+
+    with open("./proxies/misconfigured.csv", "r") as f:
+        misconfiguredproxies = f.readlines()
+        nmisconfigured = 0
+        misconfigured = ""
+        for m in misconfiguredproxies:
+            nmisconfigured = nmisconfigured + 1
+            proxy = m.split(",")[0]
+            misconfigured = misconfigured + proxy + "\n"
+    with open("./misconfigured.txt", "w") as f:
+        f.write(misconfigured)
+
+    with open("./proxies/working.csv", "r") as f:
+        working = f.readlines() 
         nhttp = 0
         nsocks4 = 0
         nsocks5 = 0
@@ -249,29 +276,29 @@ def createfiles():
                 nsocks5 = nsocks5 + 1
                 with open("./proxies/socks5.txt", "a") as f:
                     f.write(f"{proxy[0]}\n")
-            if float(proxy[2]) < 1:
+            if float(proxy[2]) < 0.5:
                 nultrafast = nultrafast + 1
                 with open("./proxies/ultrafast.txt", "a") as f:
                     f.write(f"{proxy[0]}\n")      
-            elif float(proxy[2]) < 3:
+            elif float(proxy[2]) < 1:
                 nfast = nfast + 1
                 with open("./proxies/fast.txt", "a") as f:
                     f.write(f"{proxy[0]}\n")  
-            elif float(proxy[2]) < 7:
+            elif float(proxy[2]) < 3:
                 nmedium = nmedium + 1
                 with open("./proxies/medium.txt", "a") as f:
                     f.write(f"{proxy[0]}\n")  
-            elif float(proxy[2]) < 15:
+            elif float(proxy[2]) < 7:
                 nslow = nslow + 1
                 with open("./proxies/slow.txt", "a") as f:
                     f.write(f"{proxy[0]}\n")  
-            elif float(proxy[2]) >= 15:
+            elif float(proxy[2]) >= 7:
                 nultraslow = nultraslow + 1
                 with open("./proxies/ultraslow.txt", "a") as f:
                     f.write(f"{proxy[0]}\n")  
         with open("./README.md", "r") as f:
             readme = f.read()
-        readme = readme.replace("#var-working", f"{all}").replace("#var-http", f"{nhttp}").replace("#var-socks4", f"{nsocks4}").replace("#var-socks5", f"{nsocks5}").replace("#var-ultrafast", f"{nultrafast}").replace("#var-fast", f"{nfast}").replace("#var-medium", f"{nmedium}").replace("#var-slow", f"{nslow}").replace("#var-ultraslow", f"{nultraslow}")
+        readme = readme.replace("#var-working", f"{all}").replace("#var-http", f"{nhttp}").replace("#var-socks4", f"{nsocks4}").replace("#var-socks5", f"{nsocks5}").replace("#var-ultrafast", f"{nultrafast}").replace("#var-fast", f"{nfast}").replace("#var-medium", f"{nmedium}").replace("#var-slow", f"{nslow}").replace("#var-ultraslow", f"{nultraslow}").replace("#var-excluded", f"{nexcluded}").replace("#var-misconfigured", f"{misconfigured}")
         with open("./README.md", "w") as f:
             f.write(readme)   
 
