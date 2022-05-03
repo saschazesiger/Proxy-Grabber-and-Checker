@@ -158,30 +158,48 @@ def normalizer():
 def checker(proxy, log):
     url = "http://test.js0.ch/"
     try:
-        resp = requests.get(url, proxies=dict(http=f'socks5://{proxy}'), timeout=10)
+        resp = requests.get(url, proxies=dict(http=f'socks5://{proxy}'), timeout=15)
         #print(resp)
         if resp.status_code == 200:
-            with open("./proxies/working.csv", "a") as f:
-                f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
+            if resp.text == "ok\n":
+                with open("./proxies/working.csv", "a") as f:
+                    f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
+            else:
+                with open("./proxies/excluded.csv", "a") as f:
+                    f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
         else:
-            raise ValueError('Wrong Statuscode')
+            with open("./proxies/misconfigured.csv", "a") as f:
+                f.write(f"{proxy},socks5,{resp.elapsed.total_seconds()}\n")
     except Exception as e:
         #print(e)
         try:
-            resp = requests.get(url, proxies=dict(http=f'socks4://{proxy}'), timeout=10)
+            resp = requests.get(url, proxies=dict(http=f'socks4://{proxy}'), timeout=15)
             if resp.status_code == 200:
-                with open("./proxies/working.csv", "a") as f:
-                    f.write(f"{proxy},socks4,{resp.elapsed.total_seconds()}\n")
+                if resp.text == "ok\n":
+                    with open("./proxies/working.csv", "a") as f:
+                        f.write(f"{proxy},socks4,{resp.elapsed.total_seconds()}\n")
+                else:
+                    with open("./proxies/excluded.csv", "a") as f:
+                        f.write(f"{proxy},socks4,{resp.elapsed.total_seconds()}\n")       
             else:
-                raise ValueError('Wrong Statuscode')
+                with open("./proxies/misconfigured.csv", "a") as f:
+                    f.write(f"{proxy},socks4,{resp.elapsed.total_seconds()}\n")
         except:
             try:
-                resp = requests.get(url, proxies=dict(http=f'http://{proxy}'), timeout=10)
+                resp = requests.get(url, proxies=dict(http=f'http://{proxy}'), timeout=15)
                 if resp.status_code == 200:
-                    with open("./proxies/working.csv", "a") as f:
+                    if resp.text == "ok\n":
+                        with open("./proxies/working.csv", "a") as f:
+                            f.write(f"{proxy},http,{resp.elapsed.total_seconds()}\n")
+                    else:
+                        with open("./proxies/excluded.csv", "a") as f:
+                            f.write(f"{proxy},http,{resp.elapsed.total_seconds()}\n")
+                else:
+                    with open("./proxies/misconfigured.csv", "a") as f:
                         f.write(f"{proxy},http,{resp.elapsed.total_seconds()}\n")
             except:
                 pass
+
 
 def createfiles():
    with open("./proxies/working.csv", "r") as f:
@@ -265,6 +283,8 @@ def start():
     with open("./proxies/provider.csv", "w") as f:
         f.write("")
     with open("./proxies/working.csv", "w") as f:
+        f.write("")
+    with open("./proxies/misconfigured.csv", "w") as f:
         f.write("")
     thread = []
     log = ""
