@@ -9,6 +9,11 @@
 [![License](https://img.shields.io/github/license/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/blob/master/LICENSE)
 [![Stargazers](https://img.shields.io/github/stars/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/stargazers)
 
+## 📋 Description
+
+There are more than enough free proxy lists on the Internet. However, free proxies bring many disadvantages such as poor anonymity, advertising in the HTML code when used and poor uptime. In this repository proxies from over 50 sources are regularly checked and ranked by type and speed. In addition, the scanner checks whether the HTML source code of websites got modified to protect users from advertisements, malware and bloatware. The project is published publicly under the MIT license. The Crawler/Checker can be found under the Links section.
+
+
 ## ⤴️ Stats
 
 Update Frequency: ```Every 30 minutes```
@@ -51,10 +56,6 @@ Slow (<7s Ping) | ```#var-slow``` | [GitHub](https://github.com/saschazesiger/Fr
 Ultra Slow (7s+ Ping) | ```#var-ultraslow``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/ultraslow.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/ultraslow.txt)
 
 ------------------------------------------------------------------
-
-## 📋 Description
-
-Proxies from various sources are regularly crawled and validated in this repository. Subsequently, they are divided into type and speed. All lists can be downloaded in the section above. The source code for the crawler & checker can be found in the links section. Since these are free proxies that anyone can use without restriction, they are mostly slow, insecure and blacklisted. Nevertheless they are suitable for testing and other (legal) activities. (I don't take any liability)
 
 ## 🏠 Providers
 | Website  | Number of Proxies fetched |
