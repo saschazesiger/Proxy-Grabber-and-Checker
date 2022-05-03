@@ -227,24 +227,14 @@ def createfiles():
     with open("./proxies/excluded.csv", "r") as f:
         excludedproxies = f.readlines()
         nexcluded = 0
-        excluded = ""
         for e in excludedproxies:
             nexcluded = nexcluded + 1
-            proxy = e.split(",")[0]
-            excluded = excluded + proxy + "\n"
-    with open("./excluded.txt", "w") as f:
-        f.write(excluded)
 
     with open("./proxies/misconfigured.csv", "r") as f:
         misconfiguredproxies = f.readlines()
         nmisconfigured = 0
-        misconfigured = ""
         for m in misconfiguredproxies:
             nmisconfigured = nmisconfigured + 1
-            proxy = m.split(",")[0]
-            misconfigured = misconfigured + proxy + "\n"
-    with open("./misconfigured.txt", "w") as f:
-        f.write(misconfigured)
 
     with open("./proxies/working.csv", "r") as f:
         working = f.readlines() 
@@ -296,7 +286,7 @@ def createfiles():
                     f.write(f"{proxy[0]}\n")  
         with open("./README.md", "r") as f:
             readme = f.read()
-        readme = readme.replace("#var-working", f"{all}").replace("#var-http", f"{nhttp}").replace("#var-socks4", f"{nsocks4}").replace("#var-socks5", f"{nsocks5}").replace("#var-ultrafast", f"{nultrafast}").replace("#var-fast", f"{nfast}").replace("#var-medium", f"{nmedium}").replace("#var-slow", f"{nslow}").replace("#var-ultraslow", f"{nultraslow}").replace("#var-excluded", f"{nexcluded}").replace("#var-nmisconfigured", f"{misconfigured}")
+        readme = readme.replace("#var-working", f"{all}").replace("#var-http", f"{nhttp}").replace("#var-socks4", f"{nsocks4}").replace("#var-socks5", f"{nsocks5}").replace("#var-ultrafast", f"{nultrafast}").replace("#var-fast", f"{nfast}").replace("#var-medium", f"{nmedium}").replace("#var-slow", f"{nslow}").replace("#var-ultraslow", f"{nultraslow}").replace("#var-excluded", f"{nexcluded}").replace("#var-misconfigured", f"{nmisconfigured}")
         with open("./README.md", "w") as f:
             f.write(readme)   
 
