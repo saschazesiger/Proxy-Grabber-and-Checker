@@ -7,10 +7,13 @@
 [![Commits](https://img.shields.io/github/commit-activity/w/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/commits/master)
 [![Issues](https://img.shields.io/github/issues/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/issues)
 [![License](https://img.shields.io/github/license/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/blob/master/LICENSE)
+[![Stargazers](https://img.shields.io/github/stars/saschazesiger/Free-Proxies?style=flat&logo=github)](https://github.com/saschazesiger/Free-Proxies/stargazers)
 
 ## ⤴️ Stats
 
 Update Frequency: ```Every 30 minutes```
+
+-----------------------------------------------------
 
 Type | Number | Link | File
 --- | --- | --- | ---
@@ -27,10 +30,17 @@ SOCKS5 | ```#var-socks5``` | [GitHub](https://github.com/saschazesiger/Free-Prox
 **proxy was not in previous workflow*\
 ***continuously online for at least 2 workflows (1 hour)*
 
+----------------------------------------------------------
+
 Type | Number | Link | File
 --- | --- | --- | ---
-Excluded | ```#var-excluded``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/excluded.csv) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/excluded.csv)
-Misconfigured | ```#var-misconfigured``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/misconfigured.csv) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/misconfigured.csv) |
+Excluded* | ```#var-excluded``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/excluded.csv) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/excluded.csv)
+Misconfigured** | ```#var-misconfigured``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/misconfigured.csv) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/misconfigured.csv) |
+
+**The proxy returned modified HTML. This can be ads, maleware etc.*\
+***Proxy returned a wrong HTTP Status Code*
+
+-------------------------------------------------------------
 
 Speed | Number | Link | File
 --- | --- | --- | ---
@@ -39,6 +49,8 @@ Fast (<1s Ping) | ```#var-fast``` | [GitHub](https://github.com/saschazesiger/Fr
 Medium (<3s Ping) | ```#var-medium``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/medium.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/medium.txt)
 Slow (<7s Ping) | ```#var-slow``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/slow.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/slow.txt)
 Ultra Slow (7s+ Ping) | ```#var-ultraslow``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/ultraslow.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/ultraslow.txt)
+
+------------------------------------------------------------------
 
 ## 📋 Description
 
