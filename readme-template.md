@@ -32,7 +32,6 @@ Type | Number | Link | File
 Excluded | ```#var-excluded``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/excluded.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/excluded.txt)
 Misconfigured | ```#var-misconfigured``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/misconfigured.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/misconfigured.txt) |
 
-
 Speed | Number | Link | File
 --- | --- | --- | ---
 Ultra Fast (<1s Ping) | ```#var-ultrafast``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/ultrafast.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/ultrafast.txt)
