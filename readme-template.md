@@ -27,6 +27,10 @@ SOCKS5 | ```#var-socks5``` | [GitHub](https://github.com/saschazesiger/Free-Prox
 **proxy was not in previous workflow*\
 ***continuously online for at least 2 workflows (1 hour)*
 
+Type | Number | Link | File
+--- | --- | --- | ---
+Excluded | ```#var-excluded``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/excluded.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/excluded.txt)
+Misconfigured | ```#var-misconfigured``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/misconfigured.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/misconfigured.txt) |
 
 Speed | Number | Link | File
 --- | --- | --- | ---
