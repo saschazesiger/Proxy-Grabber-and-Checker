@@ -13,12 +13,11 @@
 
 There are more than enough free proxy lists on the Internet. However, free proxies bring many disadvantages such as poor anonymity, advertising in the HTML code when used and poor uptime. In this repository proxies from over 50 sources are regularly checked and ranked by type and speed. In addition, the scanner checks whether the HTML source code of websites got modified to protect users from advertisements, malware and bloatware. The project is published publicly under the MIT license. The Crawler/Checker can be found under the Links section.
 
-
-## ⤴️ Stats
-
 Update Frequency: ```Every 30 minutes```
 
 -----------------------------------------------------
+
+## 🔎 All
 
 Type | Number | Link | File
 --- | --- | --- | ---
@@ -37,15 +36,19 @@ SOCKS5 | ```#var-socks5``` | [GitHub](https://github.com/saschazesiger/Free-Prox
 
 ----------------------------------------------------------
 
+## ⚠️ Excluded ⚠️
+
 Type | Number | Link | File
 --- | --- | --- | ---
-Excluded* | ```#var-excluded``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/excluded.csv) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/excluded.csv)
+Filtered* | ```#var-excluded``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/excluded.csv) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/excluded.csv)
 Misconfigured** | ```#var-misconfigured``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/misconfigured.csv) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/misconfigured.csv) |
 
 **The proxy returned modified HTML. This can be ads, maleware etc.*\
 ***Proxy returned a wrong HTTP Status Code*
 
 -------------------------------------------------------------
+
+## 🚄 Speed
 
 Speed | Number | Link | File
 --- | --- | --- | ---
