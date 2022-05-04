@@ -31,7 +31,7 @@ HTTP/HTTPS | ```#var-http``` | [GitHub](https://github.com/saschazesiger/Free-Pr
 SOCKS4 | ```#var-socks4``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/socks4.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/socks4.txt)
 SOCKS5 | ```#var-socks5``` | [GitHub](https://github.com/saschazesiger/Free-Proxies/blob/master/proxies/socks5.txt) | [RAW](https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/socks5.txt) |
 
-**proxy was not in previous workflow*
+**proxy was not in previous workflow*\
 ***continuously online for at least 2 workflows (1 hour)*
 
 ----------------------------------------------------------
