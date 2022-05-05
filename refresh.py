@@ -222,6 +222,8 @@ def createfiles():
         f.write("")
     with open("./proxies/misconfigured.txt", "w") as f:
         f.write("")
+    with open("./proxies/excluded.csv", "w") as f:
+        f.write("")
         
     
     with open("./proxies/excluded.csv", "r") as f:
