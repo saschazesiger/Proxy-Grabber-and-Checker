@@ -1,7 +1,4 @@
-from ast import Num
-from email import charset
-from ftplib import parse150
-from selenium import webdriver #pip install selenium
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import re
@@ -53,7 +50,7 @@ def gethtmljsraw(url):
     chrome_options.add_argument("window-size=600,600")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--log-level=3")
-    driver = webdriver.Chrome("./chromedriver", options=chrome_options)
+    driver = webdriver.Chrome("./chromedriver.exe", options=chrome_options)
     driver.get(url)
     html = driver.page_source
     driver.quit()
@@ -156,7 +153,7 @@ def normalizer():
         f.write(readme)
 
 def checker(proxy, log):
-    url = "http://test.js0.ch/"
+    url = "https://test.js0.ch/"
     try:
         resp = requests.get(url, proxies=dict(http=f'socks5://{proxy}'), timeout=10)
         if resp.status_code == 200:
